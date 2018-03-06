@@ -3,5 +3,6 @@ class UserDestinationListsController < ApplicationController
   end
 
   def index
+    render "new"
   end
 end

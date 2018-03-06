@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'user_destination_list#index'
+  root 'user_destination_lists#index'
 
   get 'user_destination_lists/new'
 
