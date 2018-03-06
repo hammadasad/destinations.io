@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+
+  root 'user_destination_list#index'
+
+  get 'user_destination_lists/new'
+
+  get 'sessions/new'
+
+  post 'sessions/create'
+
+  delete 'sessions/destroy'
+
+  get 'users/new'
+
+  post 'users/create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
