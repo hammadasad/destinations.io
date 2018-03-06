@@ -1,12 +1,1 @@
-<p>
-    <% if current_user %>
-        Welcome <%= current_user.email %>
-        <%= link_to 'Logout', sessions_path, method: :delete %>
-    <% else %>
-        <p><%= link_to 'New User', new_users_path %></p>
-        <p><%= link_to 'Login', new_sessions_path %></p>
-    <% end %>
-</p>
-
-
 <h1> All Destinations </h1>
