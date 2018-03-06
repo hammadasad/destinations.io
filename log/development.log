@@ -1405,3 +1405,36 @@ Processing by UsersController#create as HTML
 Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:09:07 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.0.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 241ms (Views: 233.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-03-06 13:09:11 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 46ms (Views: 31.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-06 13:09:21 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mR7OsOcDLmsLmZ/WSC/I8bX8HJAFZm2gitsu9DO7OqlYC6R3HdV8GdB2bFYsrmG9h9kepWfg4lGrWxOQKPyZDg==", "user"=>{"email"=>"hammad_asad@msn.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "hammad_asad@msn.com"], ["password_digest", "$2a$10$0FaGPZ2pwZJceFszCKMGXetLw1QpX0oef8bM6z80ucQFuLDAHwSC."], ["created_at", 2018-03-06 18:09:21 UTC], ["updated_at", 2018-03-06 18:09:21 UTC]]
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 94ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:09:21 -0500
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
