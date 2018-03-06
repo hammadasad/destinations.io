@@ -1,5 +1,14 @@
 <h1>Sign Up</h1>
 
+<!-- if we don't do this and submit a form with no password, it rollbacks the transaction, we won't know about it -->
+<% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @user do |f| %>
     <div class='field'>
         <%= f.label :email %>

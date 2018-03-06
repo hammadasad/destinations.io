@@ -1438,3 +1438,275 @@ Processing by UserDestinationListsController#index as HTML
 Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:20:42 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.0.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 239ms (Views: 227.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-03-06 13:20:44 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 49ms (Views: 32.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-06 13:21:08 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pibjxK0VP1gLuXGTJbKJY9CUIUpYnk+yq6dZe/WDyHBnM4kDV8NtKtBWghNBMyAv4rEjfzoYwEOKJ2Qf7sRr1w==", "user"=>{"email"=>"hammad_asad@msn.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "hammad_asad@msn.com"], ["password_digest", "$2a$10$JJZribx8ERgTqjBTNjPCDOc3//lVUnJabfVT4dcGgh1Yvh4ohePUG"], ["created_at", 2018-03-06 18:21:08 UTC], ["updated_at", 2018-03-06 18:21:08 UTC]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 86ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:21:08 -0500
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-03-06 13:21:11 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-06 13:22:03 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CKEhJvORwtDwGaOICiTU7qUJnvoM1antrXHLDzBGIg/JtEvhCUeQoiv2UAhupX2ilyycz25TJhyM8fZrKwGBqA==", "user"=>{"email"=>"hammad_asad@msn.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:37:15 -0500
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-03-06 13:37:18 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (38.5ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `sessions_create_path' for #<#<Class:0x00007f390e846720>:0x00007f390e8455c8>
+Did you mean?  sessions_path):
+    1: <h1>Login</h1>
+    2: 
+    3: <%= form_for :session, url: sessions_create_path do |f| %>
+    4:     <div class='field'>
+    5:         <%= f.label :email %>
+    6:         <%= f.email_field :email %>
+  
+app/views/sessions/new.html.erb:3:in `_app_views_sessions_new_html_erb__2927329774803971525_69941516711820'
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.5ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in render_exception_with_web_console at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/extensions.rb:16)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from __home_hammad__rbenv_versions_______lib_ruby_gems_______gems_web_console_______lib_web_console_templates_console_js_erb__2426859264141001567_69941515259640 at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.1ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (47.6ms)
+Started GET "/sessions/new" for 127.0.0.1 at 2018-03-06 13:37:48 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.0.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (35.5ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `create_sessions_path' for #<#<Class:0x00007f82a8ac8ca8>:0x00007f82a8ac1a70>
+Did you mean?  new_sessions_path):
+    1: <h1>Login</h1>
+    2: 
+    3: <%= form_for :session, url: create_sessions_path do |f| %>
+    4:     <div class='field'>
+    5:         <%= f.label :email %>
+    6:         <%= f.email_field :email %>
+  
+app/views/sessions/new.html.erb:3:in `_app_views_sessions_new_html_erb__2637901552186367294_70099576180860'
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.2ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in render_exception_with_web_console at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/extensions.rb:16)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from __home_hammad__rbenv_versions_______lib_ruby_gems_______gems_web_console_______lib_web_console_templates_console_js_erb___1114571769025421792_70099573110600 at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (24.5ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (49.3ms)
+Started GET "/sessions/new" for 127.0.0.1 at 2018-03-06 13:38:59 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.0.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 260ms (Views: 246.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-03-06 13:39:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQH8yGb1pQnuCtgIM2Rv2kPtsaCkM+fxR3WHI/a1tzzEFJYPnCP3ezXlK4hX5caWccizlca1aABm9bpH7fIUmw==", "session"=>{"email"=>"hammad_asad@msn.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hammad_asad@msn.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 97ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:39:08 -0500
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:47:39 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.0.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 233ms (Views: 224.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-03-06 13:47:40 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 46ms (Views: 31.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-03-06 13:47:45 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-03-06 13:47:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jm9gcqNcOD922DFUv7BQ9fuOYvGX+BsNl+rLfPI41idPegq1WYpqTa03wtTbMfm5yatgxPV+lPy2avYY6X91gA==", "session"=>{"email"=>"hammad_asad@msn.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hammad_asad@msn.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:47:50 -0500
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user_destination_lists/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 27ms (Views: 26.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2018-03-06 13:47:54 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TwHXtd2G0D+qG37kGYEjxTHCIYaF2bnmmuJQG0mWBxqOFL1yJ1CCTXH0jWR9AIqJA+cjs+dfNhe7Ym1/UtGkvQ=="}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `sessions' for #<SessionsController:0x00007f47648522c8>
+Did you mean?  session):
+  
+app/controllers/sessions_controller.rb:17:in `destroy'
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from __home_hammad__rbenv_versions_______lib_ruby_gems_______gems_web_console_______lib_web_console_templates_console_js_erb__2691702314710200515_69972321686960 at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (30.8ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.1ms)
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:48:36 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /home/hammad/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.0.2/lib/active_record/railtie.rb:113)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user_destination_lists/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 246ms (Views: 236.6ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2018-03-06 13:48:38 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Zn/4dVIW8BFS5D9ncN23O1n6gTWjPcHg8G2WezjqonSnapKyqMCiY4kLzOcUXB53a9+DAMG7ThHR7asfI60B0w=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-06 13:48:38 -0500
+Processing by UserDestinationListsController#index as HTML
+  Rendering user_destination_lists/new.html.erb within layouts/application
+  Rendered user_destination_lists/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+

@@ -2,13 +2,9 @@ Rails.application.routes.draw do
 
   resources :user_destination_lists, only: :index
 
-  get 'sessions/new'
-
-  post 'sessions/create'
-
-  delete 'sessions/destroy'
-
   resource :users, only: %i(new create)
+
+  resource :sessions, only: %i(new create destroy)
 
   root 'user_destination_lists#index'
   # The priority is based upon order of creation: first created -> highest priority.
