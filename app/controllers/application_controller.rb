@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
       user_id = session[:user_id]
       user_id && User.find(user_id)
   end
+
 end

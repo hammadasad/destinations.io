@@ -1,4 +1,5 @@
 class UserDestinationListsController < ApplicationController
+
   def new
   end
 
