@@ -201,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // We assign the item we click on
             var selectedObj = ui.item;
             $("#destinationInput").val(selectedObj.value);
+            addPin(selectedObj.value);
             return false;
         },
         open: function () {
@@ -213,5 +214,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Delay occurs in ms when keystroke occurs when a search is performed
     $("#destinationInput").autocomplete("option", "delay", 100);
+
+    // Add Pin to City on the Map
+    function addPin(city) {
+        if(typeof city == "undefined") {
+            city = $("#destinationInput").val();
+        }
+
+        if(city) {
+            $.getJSON(
+                "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn=" + city,
+                function(data) {
+                    handler.addMarkers([
+                      { lat: data.geobyteslatitude, lng: data.geobyteslongitude, infowindow: city }
+                    ]);
+                }
+            );
+        }
+    }
 
 });
