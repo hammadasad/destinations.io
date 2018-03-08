@@ -15,8 +15,8 @@
           Welcome <%= current_user.email %>
           <%= link_to 'Logout', sessions_path, method: :delete %>
       <% else %>
-          <p><%= link_to 'New User', new_users_path %></p>
-          <p><%= link_to 'Login', new_sessions_path %></p>
+          <p id="newUserAnchor"><%= link_to 'New User', new_users_path %></p>
+          <p id="loginAnchor"><%= link_to 'Login', new_sessions_path %></p>
       <% end %>
   </p>
 
