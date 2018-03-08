@@ -172,6 +172,8 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         }
     ]
+
+    // Google Map does work
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {
         zoom:      2,
@@ -179,6 +181,37 @@ document.addEventListener('DOMContentLoaded', function() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: mapStyle
     }, internal: {id: 'map'}}, function(){
-    handler.fitMapToBounds();
+       handler.fitMapToBounds();
     });
+
+    // Destination Input AutoComplete
+    $("#destinationInput").autocomplete({
+        source: function(request, response) {
+            // request contains the term we have typed
+            $.getJSON(
+                "http://gd.geobytes.com/AutoCompleteCity?callback=?&q=" + request.term,
+                function(data) {
+                    response(data);
+                }
+            );
+        },
+        // Minimum characters for destination suggestions
+        minLength: 4,
+        select: function(event, ui) {
+            // We assign the item we click on
+            var selectedObj = ui.item;
+            $("#destinationInput").val(selectedObj.value);
+            return false;
+        },
+        open: function () {
+            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+        },
+        close: function () {
+            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+        }
+    });
+
+    // Delay occurs in ms when keystroke occurs when a search is performed
+    $("#destinationInput").autocomplete("option", "delay", 100);
+
 });

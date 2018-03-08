@@ -13,3 +13,10 @@
 #newUserAnchor, #loginAnchor {
   display:inline;
 }
+
+.ui-menu .ui-menu-item a,.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+	text-align:left;
+	font-size:14px;
+}
