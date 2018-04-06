@@ -4,6 +4,19 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Lookup list for marker
+    var lookup = [];
+
+    // Helper function to see if a marker already exists at a spot
+    function isLocationFree(search) {
+      for (var i = 0, l = lookup.length; i < l; i++) {
+        if (lookup[i] === search) {
+          return false;
+        }
+      }
+      return true;
+    }
+
     // Snazzy Maps Styling
     var mapStyle = [
         {
@@ -173,16 +186,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ]
 
-    // Google Map does work
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {
-        zoom:      2,
-        center:    new google.maps.LatLng(53.385873, -1.471471),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: mapStyle
-    }, internal: {id: 'map'}}, function(){
-       handler.fitMapToBounds();
-    });
+    var mapOptions = {
+      center: { lat: 45.3914, lng: -75.659 },
+      streetViewControl: false,
+      disableDefaultUI:true,
+      zoom: 2,
+    };
+
+    const map = new google.maps.Map(document.getElementById('map'),mapOptions);
+    map.setOptions({styles: mapStyle});
 
     // Destination Input AutoComplete
     $("#destinationInput").autocomplete({
@@ -222,12 +234,72 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if(city) {
+
             $.getJSON(
                 "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn=" + city,
                 function(data) {
-                    handler.addMarkers([
-                      { lat: data.geobyteslatitude, lng: data.geobyteslongitude, infowindow: city }
-                    ]);
+
+                    // If marker already exists on map, don't place it
+                    //const search = [data.geobyteslatitude, data.geobyteslongitude];
+                    if(!isLocationFree(city)) {
+                        return;
+                    }
+
+                    // Generate marker
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(data.geobyteslatitude, data.geobyteslongitude),
+                        map: map,
+                        animation: google.maps.Animation.DROP,
+                        icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                        title: city
+                    });
+
+                    // Push it to the list
+                    //lookup.push([data.geobyteslatitude, data.geobyteslongitude]);
+                    lookup.push(city);
+
+                    marker.color = true;
+
+                    // String for infoWindow - includes formatting
+                    const cityString = '<h3 style="color:black;">' + city + '</h3>';
+
+                    // InfoWindow definition
+                    var infowindow = new google.maps.InfoWindow({
+                      content: cityString
+                    });
+
+                    // Attach hover event for window popup
+                    marker.addListener('mouseover', function() {
+                        infowindow.open(map, this);
+                    });
+
+                    // Hover off, close the infowindow
+                    marker.addListener('mouseout', function() {
+                        infowindow.close();
+                    });
+
+                    marker.addListener('dblclick', function() {
+                        // Remove it physically from the map
+                        this.setMap(null);
+                        // Remove it from our internal list
+                        for (var i = 0, l = lookup.length; i < l; i++) {
+                          if (lookup[i] === this.title) {
+                            lookup[i] = null;
+                          }
+                        }
+                    });
+
+                    // If we click the marker, we can switch from visited to will visit
+                    marker.addListener('click', function() {
+                      if(marker.color) {
+                        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+                        marker.color = false;
+                      } else {
+                        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+                        marker.color = true;
+                      }
+
+                    });
                 }
             );
         }

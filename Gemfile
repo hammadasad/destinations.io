@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem 'gmaps4rails'
  gem 'underscore-rails'
 
+ gem "bulma-rails", "~> 0.6.2"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
