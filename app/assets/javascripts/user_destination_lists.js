@@ -238,7 +238,11 @@ document.addEventListener('DOMContentLoaded', function() {
             $.getJSON(
                 "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn=" + city,
                 function(data) {
-
+                  // check session
+                  if (typeof email === 'undefined') {
+                      // the user is logged in
+                      return;
+                  }
                     // If marker already exists on map, don't place it
                     //const search = [data.geobyteslatitude, data.geobyteslongitude];
                     if(!isLocationFree(city)) {
@@ -298,8 +302,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
                         marker.color = true;
                       }
-
                     });
+
+                    if (typeof email !== 'undefined') {
+                        $.ajax({
+                            url: "/user_destination_lists",
+                            type: "POST",
+                            data: {destination: {
+                                     city : city,
+                                     lat: data.geobyteslatitude,
+                                     long: data.geobyteslongitude },
+                                   user: {
+                                     email: email
+                                   }},
+                            success: function(resp){ }
+                        });
+                    }
+
                 }
             );
         }

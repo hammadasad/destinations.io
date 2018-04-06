@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :user_destination_lists, only: :index
+  resources :user_destination_lists, only: %i(new create index)
 
   resource :users, only: %i(new create)
 
