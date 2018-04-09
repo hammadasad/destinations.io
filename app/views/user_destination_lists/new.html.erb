@@ -2,10 +2,8 @@
 <input type="text" id="destinationInput" placeholder="Search for destination">
 
 </input>
-<br>
-<br>
-<br>
-<br>
+</br>
+</br>
 <div id="container">
     <div id="map"></div>
 </div>
@@ -14,5 +12,6 @@
 <script type="text/javascript">
     <% if current_user %>
         const email = '<%= current_user.email %>';
+        const id = '<%= current_user.id %>';
     <% end %>
 </script>

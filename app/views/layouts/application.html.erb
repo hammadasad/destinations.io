@@ -21,17 +21,30 @@
     </div>
 
     <!-- menu -->
-    <div class="navbar-menu">
-      <div class="navbar-center">
+    <!-- <div class="navbar-menu"> -->
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
             <% if current_user %>
-                Welcome <%= current_user.email %>
-                <%= link_to 'Logout', sessions_path, method: :delete %>
+              <p class="control">
+                <a class="navbar-item" style="display:inline;">Welcome <%= current_user.email %></a>
+              </p>
+
+              <p class="control">
+                <a class="navbar-item" style="display:inline;"><%= link_to 'Logout', sessions_path, method: :delete %></a>
+              </p>
             <% else %>
+              <p class="control">
                 <a class="navbar-item" id="newUserAnchor"><%= link_to 'New User', new_users_path %></a>
-                <a class="navbar-item" id="loginAnchor"><%= link_to 'Login', new_sessions_path %></a>
+              </p>
+              <p class="control">
+                <a class="navbar-item is hoverable" id="loginAnchor"><%= link_to 'Login', new_sessions_path %></a>
+              </p>
             <% end %>
+          </div>
+        </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </nav>
 
