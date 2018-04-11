@@ -18,7 +18,8 @@
     const list = [];
     <% if @list %>
         <% @list.each do | aDestination | %>
-            list.push('<%= aDestination %>');
+            list.push('<%= aDestination.html_safe %>');
+            console.log('<%= aDestination.html_safe %>');
         <% end %>
     <% end %>
 </script>
