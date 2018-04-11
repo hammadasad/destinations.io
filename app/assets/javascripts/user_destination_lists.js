@@ -337,21 +337,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             postRequest('user_destination_lists/status', dataSent);
                         }
                       }
-
-                      if (typeof email !== 'undefined') {
-                          $.ajax({
-                              url: "/destination",
-                              type: "POST",
-                              data: {destination: {
-                                       city : city,
-                                       lat: data.geobyteslatitude,
-                                       long: data.geobyteslongitude },
-                                     user: {
-                                       email: email
-                                     }},
-                              success: function(resp){ }
-                          });
-                      }
                     });
 
                     if (typeof email !== 'undefined') {
@@ -363,6 +348,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                      lat: data.geobyteslatitude,
                                      long: data.geobyteslongitude },
                                    user: {
+                                     id: id,
                                      email: email
                                    }},
                             success: function(resp){ }
