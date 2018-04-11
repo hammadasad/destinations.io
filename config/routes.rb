@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resource :sessions, only: %i(new create destroy)
 
+  post '/user_destination_lists/status', to: 'user_destination_lists#status'
+
   root 'user_destination_lists#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

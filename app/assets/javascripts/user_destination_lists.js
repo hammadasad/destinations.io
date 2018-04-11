@@ -17,6 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
       return true;
     }
 
+    function postRequest(route, dataSent) {
+      $.ajax({
+          url: "/" + route,
+          type: "POST",
+          data: dataSent,
+          success: function(resp){ }
+      });
+    }
+
     // Snazzy Maps Styling
     var mapStyle = [
         {
@@ -298,9 +307,50 @@ document.addEventListener('DOMContentLoaded', function() {
                       if(marker.color) {
                         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
                         marker.color = false;
+
+                        if (typeof email !== 'undefined') {
+                            dataSent = {
+                                user: {
+                                    id: id
+                                },
+                                destination: {
+                                    city: city,
+                                    status: "visited"
+                                }
+                            };
+                            postRequest('user_destination_lists/status', dataSent);
+                        }
                       } else {
                         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
                         marker.color = true;
+
+                        if (typeof email !== 'undefined') {
+                            dataSent = {
+                                user: {
+                                    id: id
+                                },
+                                destination: {
+                                    city: city,
+                                    status: "not visited"
+                                }
+                            };
+                            postRequest('user_destination_lists/status', dataSent);
+                        }
+                      }
+
+                      if (typeof email !== 'undefined') {
+                          $.ajax({
+                              url: "/destination",
+                              type: "POST",
+                              data: {destination: {
+                                       city : city,
+                                       lat: data.geobyteslatitude,
+                                       long: data.geobyteslongitude },
+                                     user: {
+                                       email: email
+                                     }},
+                              success: function(resp){ }
+                          });
                       }
                     });
 
@@ -318,7 +368,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             success: function(resp){ }
                         });
                     }
-
                 }
             );
         }
