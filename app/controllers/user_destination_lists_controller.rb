@@ -19,14 +19,22 @@ class UserDestinationListsController < ApplicationController
   end
 
   def create
-    user_destination_item = UserDestinationList.new
-    destination = Destination.new(destination_params)
-    destination.save
-    user_destination_item.destination = destination
-    user = User.new(user_params)
-    user.save
-    user_destination_item.user = user
-    user_destination_item.save
+    destination = Destination.findBy(city: destination_params[:city])
+    if destination
+      if UserDestinationList.exists?(user_id: user_params[:id], destination_id: destination.id)
+          render plain: "Destination for user exists"
+      else
+          user_destination_item = UserDestinationList.new
+          user_destination_item.destination = destination
+          user_destination_item.user_id = user_params[:id]
+          user_destination_item.save
+          render plain: "User-Destination saved"
+      end
+    else
+        destination = Destination.new(destination_params)
+        destination.save
+        render plain: "Destination Created"
+    end
   end
 
   def status
